@@ -300,8 +300,8 @@ namespace GasMaskSystem
             canBreath = false;
             GasMaskHealthController.instance.UpdateHealth();
             GasMaskHealthController.instance.regenHealth = false;
-            AKDisableManager.instance.player.m_WalkSpeed = walkGas;
-            AKDisableManager.instance.player.m_RunSpeed = runGas;
+            //AKDisableManager.instance.player.m_WalkSpeed = walkGas;
+            //AKDisableManager.instance.player.m_RunSpeed = runGas;
             blurEffect.enabled = true;
         }
 
@@ -309,8 +309,8 @@ namespace GasMaskSystem
         {
             canBreath = true;
             GasMaskHealthController.instance.regenHealth = true;
-            AKDisableManager.instance.player.m_WalkSpeed = walkNorm;
-            AKDisableManager.instance.player.m_RunSpeed = runNorm;
+            //AKDisableManager.instance.player.m_WalkSpeed = walkNorm;
+            //AKDisableManager.instance.player.m_RunSpeed = runNorm;
             blurEffect.enabled = false;
         }
 
