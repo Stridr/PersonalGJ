@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class openDoors : MonoBehaviour
 {
-    RaycastHit hit;
-    // Start is called before the first frame update
-    void Start()
+    public float max_door_distance = 1.0f;
+    private Animator anim;
+    private void Update()
     {
-        
-    }
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            RaycastHit hit;
+                if(Physics.Raycast(ray, out hit, 10.0f))
+            {
+                if(hit.collider.tag == "Door" && Vector3.Distance(Camera.main.transform.position, hit.point) < max_door_distance)
+                {
+                    Debug.Log("open door now");
+                    anim.Play("dooropening1", 0, 0f);
+                }
+            }
+        }
     }
+    // Start is called before the first frame update
+
 }

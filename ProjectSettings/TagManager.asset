@@ -9,6 +9,7 @@ TagManager:
   - ItemName
   - InspectPoint
   - ExaminePoint
+  - Door
   layers:
   - Default
   - TransparentFX
