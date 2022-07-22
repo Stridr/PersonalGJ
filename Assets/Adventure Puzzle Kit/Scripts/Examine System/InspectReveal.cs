@@ -9,6 +9,8 @@ namespace ExamineSystem
         [SerializeField] private GameObject objectToReveal = null;
         public Item Item;
 
+
+
         public void RevealHidden()
         {
             objectToHide.SetActive(false);
@@ -27,9 +29,12 @@ namespace ExamineSystem
             
         }
 
-        private void OnMouseDown()
+        
+
+        /*private void OnMouseDown()
         {
             PickupExample();
-        }
+            
+        }*/
     }
 }
