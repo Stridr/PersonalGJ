@@ -8,29 +8,26 @@ namespace ChessPuzzleSystem
         [Header("Type of Key")]
         [SerializeField] private ChessPieceTheme chessType = ChessPieceTheme.None;
 
-        public enum ChessPieceTheme { None, Pawn, Rook, Knight, Bishop, Queen, King }
+        public enum ChessPieceTheme { None, Ruby, Weiss, Blake, Yang, Key }
 
         public void ChessPiecePickup()
         {
             switch (chessType)
             {
-                case ChessPieceTheme.Pawn:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Pawn);
+                case ChessPieceTheme.Ruby:
+                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Ruby);
                     break;
-                case ChessPieceTheme.Rook:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Rook);
+                case ChessPieceTheme.Weiss:
+                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Weiss);
                     break;
-                case ChessPieceTheme.Knight:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Knight);
+                case ChessPieceTheme.Blake:
+                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Blake);
                     break;
-                case ChessPieceTheme.Bishop:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Bishop);
+                case ChessPieceTheme.Yang:
+                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Yang);
                     break;
-                case ChessPieceTheme.Queen:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Queen);
-                    break;
-                case ChessPieceTheme.King:
-                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.King);
+                case ChessPieceTheme.Key:
+                    ChessInventoryManager.instance.UpdateInventory(ChessInventoryManager.InventoryPiece.Key);
                     break;
             }
             AKAudioManager.instance.Play("ChessPiecePickup");

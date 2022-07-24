@@ -8,7 +8,7 @@ namespace KeypadSystem
         private Animator doorAnim;
 
         [Header("Animation Name")]
-        [SerializeField] private string animationName = "OpenDoor";
+        [SerializeField] private string animationName;
 
         [Header("Sound Clip Names")]
         [SerializeField] private string soundClipName = "ThemedKeyDoorOpen";

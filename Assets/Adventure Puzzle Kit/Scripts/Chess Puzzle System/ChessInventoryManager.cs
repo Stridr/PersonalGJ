@@ -7,34 +7,31 @@ namespace ChessPuzzleSystem
 {
     public class ChessInventoryManager : MonoBehaviour
     {
-        [HideInInspector] public bool hasPawnFuse;
-        [HideInInspector] public bool hasRookFuse;
-        [HideInInspector] public bool hasKnightFuse;
-        [HideInInspector] public bool hasBishopFuse;
-        [HideInInspector] public bool hasQueenFuse;
-        [HideInInspector] public bool hasKingFuse;
+        [HideInInspector] public bool hasRubyFuse;
+        [HideInInspector] public bool hasWeissFuse;
+        [HideInInspector] public bool hasBlakeFuse;
+        [HideInInspector] public bool hasYangFuse;
+        [HideInInspector] public bool hasKeyFuse;
 
-        [HideInInspector] public bool usingPawnBox;
-        [HideInInspector] public bool usingRookBox;
-        [HideInInspector] public bool usingKnightBox;
-        [HideInInspector] public bool usingBishopBox;
-        [HideInInspector] public bool usingQueenBox;
-        [HideInInspector] public bool usingKingBox;
+        [HideInInspector] public bool usingRubyBox;
+        [HideInInspector] public bool usingWeissBox;
+        [HideInInspector] public bool usingBlakeBox;
+        [HideInInspector] public bool usingYangBox;
+        [HideInInspector] public bool usingKeyBox;
 
         [Header("Main Key UI")]
         [SerializeField] private GameObject chessPuzzleInventoryUI;
 
         [Header("Key Icon UI")]
-        [SerializeField] private Image pawnImageSlotUI = null;
-        [SerializeField] private Image rookImageSlotUI = null;
-        [SerializeField] private Image knightImageSlotUI = null;
-        [SerializeField] private Image bishopImageSlotUI = null;
-        [SerializeField] private Image queenImageSlotUI= null;
-        [SerializeField] private Image kingImageSlotUI = null;
+        [SerializeField] private Image RubyImageSlotUI = null;
+        [SerializeField] private Image WeissImageSlotUI = null;
+        [SerializeField] private Image BlakeImageSlotUI = null;
+        [SerializeField] private Image YangImageSlotUI = null;
+        [SerializeField] private Image KeyImageSlotUI = null;
 
         [Header("Type of Key")]
         private InventoryPiece _inventoryPiece;
-        public enum InventoryPiece { Pawn, Rook, Knight, Bishop, Queen, King }
+        public enum InventoryPiece { Ruby, Weiss, Blake, Yang, Key }
 
         public static ChessInventoryManager instance;
 
@@ -57,52 +54,44 @@ namespace ChessPuzzleSystem
 
             switch (buttonType)
             {
-                case "Pawn":
-                    if (hasPawnFuse && !invfuseBoxController.fusePlaced)
+                case "Ruby":
+                    if (hasRubyFuse && !invfuseBoxController.fusePlaced)
                     {
-                        invfuseBoxController.PlaceFuse("Pawn");
-                        hasPawnFuse = false;
-                        pawnImageSlotUI.color = Color.black;
+                        invfuseBoxController.PlaceFuse("Ruby");
+                        hasRubyFuse = false;
+                        RubyImageSlotUI.color = Color.black;
                     }
                     break;
-                case "Rook":
-                    if (hasRookFuse && !invfuseBoxController.fusePlaced)
+                case "Weiss":
+                    if (hasWeissFuse && !invfuseBoxController.fusePlaced)
                     {
-                        invfuseBoxController.PlaceFuse("Rook");
-                        hasRookFuse = false;
-                        rookImageSlotUI.color = Color.black;
+                        invfuseBoxController.PlaceFuse("Weiss");
+                        hasWeissFuse = false;
+                        WeissImageSlotUI.color = Color.black;
                     }
                     break;
-                case "Knight":
-                    if (hasKnightFuse && !invfuseBoxController.fusePlaced)
+                case "Blake":
+                    if (hasBlakeFuse && !invfuseBoxController.fusePlaced)
                     {
-                        invfuseBoxController.PlaceFuse("Knight");
-                        hasKnightFuse = false;
-                        knightImageSlotUI.color = Color.black;
+                        invfuseBoxController.PlaceFuse("Blake");
+                        hasBlakeFuse = false;
+                        BlakeImageSlotUI.color = Color.black;
                     }
                     break;
-                case "Bishop":
-                    if (hasBishopFuse && !invfuseBoxController.fusePlaced)
+                case "Yang":
+                    if (hasYangFuse && !invfuseBoxController.fusePlaced)
                     {
-                        invfuseBoxController.PlaceFuse("Bishop");
-                        hasBishopFuse = false;
-                        bishopImageSlotUI.color = Color.black;
+                        invfuseBoxController.PlaceFuse("Yang");
+                        hasYangFuse = false;
+                        YangImageSlotUI.color = Color.black;
                     }
                     break;
-                case "Queen":
-                    if (hasQueenFuse && !invfuseBoxController.fusePlaced)
+                case "Key":
+                    if (hasKeyFuse && !invfuseBoxController.fusePlaced)
                     {
-                        invfuseBoxController.PlaceFuse("Queen");
-                        hasQueenFuse = false;
-                        queenImageSlotUI.color = Color.black;
-                    }
-                    break;
-                case "King":
-                    if (hasKingFuse && !invfuseBoxController.fusePlaced)
-                    {
-                        invfuseBoxController.PlaceFuse("King");
-                        hasKingFuse = false;
-                        kingImageSlotUI.color = Color.black;
+                        invfuseBoxController.PlaceFuse("Key");
+                        hasKeyFuse = false;
+                        KeyImageSlotUI.color = Color.black;
                     }
                     break;
                 case "RemoveFuse":
@@ -112,12 +101,11 @@ namespace ChessPuzzleSystem
 
                         switch(pieceName)
                         {
-                            case "Pawn": UpdateInventory(InventoryPiece.Pawn); break;
-                            case "Rook": UpdateInventory(InventoryPiece.Rook); break;
-                            case "Knight": UpdateInventory(InventoryPiece.Knight); break;
-                            case "Bishop": UpdateInventory(InventoryPiece.Bishop); break;
-                            case "Queen": UpdateInventory(InventoryPiece.Queen); break;
-                            case "King": UpdateInventory(InventoryPiece.King); break;
+                            case "Ruby": UpdateInventory(InventoryPiece.Ruby); break;
+                            case "Weiss": UpdateInventory(InventoryPiece.Weiss); break;
+                            case "Blake": UpdateInventory(InventoryPiece.Blake); break;
+                            case "Yang": UpdateInventory(InventoryPiece.Yang); break;
+                            case "Key": UpdateInventory(InventoryPiece.Key); break;
                         }
                         
                         invfuseBoxController.PlaceFuse("RemoveFuse");
@@ -130,34 +118,29 @@ namespace ChessPuzzleSystem
         {
             switch (_inventoryPiece)
             {
-                case InventoryPiece.Pawn:
-                    hasPawnFuse = true;
-                    pawnImageSlotUI.color = Color.white;
+                case InventoryPiece.Ruby:
+                    hasRubyFuse = true;
+                    RubyImageSlotUI.color = Color.white;
                     AKUIManager.instance.hasChessPiece = true;
                     break;
-                case InventoryPiece.Rook:
-                    hasRookFuse = true;
-                    rookImageSlotUI.color = Color.white;
+                case InventoryPiece.Weiss:
+                    hasWeissFuse = true;
+                    WeissImageSlotUI.color = Color.white;
                     AKUIManager.instance.hasChessPiece = true;
                     break;
-                case InventoryPiece.Knight:
-                    hasKnightFuse = true;
-                    knightImageSlotUI.color = Color.white;
+                case InventoryPiece.Blake:
+                    hasBlakeFuse = true;
+                    BlakeImageSlotUI.color = Color.white;
                     AKUIManager.instance.hasChessPiece = true;
                     break;
-                case InventoryPiece.Bishop:
-                    hasBishopFuse = true;
-                    bishopImageSlotUI.color = Color.white;
+                case InventoryPiece.Yang:
+                    hasYangFuse = true;
+                    YangImageSlotUI.color = Color.white;
                     AKUIManager.instance.hasChessPiece = true;
                     break;
-                case InventoryPiece.Queen:
-                    hasQueenFuse = true;
-                    queenImageSlotUI.color = Color.white;
-                    AKUIManager.instance.hasChessPiece = true;
-                    break;
-                case InventoryPiece.King:
-                    hasKingFuse = true;
-                    kingImageSlotUI.color = Color.white;
+                case InventoryPiece.Key:
+                    hasKeyFuse = true;
+                    KeyImageSlotUI.color = Color.white;
                     AKUIManager.instance.hasChessPiece = true;
                     break;
             }

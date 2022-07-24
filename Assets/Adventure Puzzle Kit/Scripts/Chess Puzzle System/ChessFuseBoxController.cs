@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using AdventurePuzzleKit;
 
 namespace ChessPuzzleSystem
@@ -7,29 +8,26 @@ namespace ChessPuzzleSystem
     {
         [Header("Fuse Box Properties")]
         [SerializeField] private FuseBoxType _fuseBoxType = FuseBoxType.None;
-        [SerializeField] private enum FuseBoxType { None, PawnFuseBox, RookFuseBox, KnightFuseBox, BishopFuseBox, QueenFuseBox, KingFuseBox }
+        [SerializeField] private enum FuseBoxType { None, RubyFuseBox, WeissFuseBox,BlakeFuseBox, YangFuseBox, KeyFuseBox }
 
         [Header("Fuse placed by default?")]
         [SerializeField] private FuseType _fuseType;
-        private enum FuseType { None, PawnFuse, RookFuse, KnightFuse, BishopFuse, QueenFuse, KingFuse }
+        private enum FuseType { None, Ruby, Weiss, Blake, Yang, Key }
         public bool fusePlaced;
 
         [HideInInspector] public string fuseBoxName;
         [HideInInspector] public string fuseName;
 
         [Header("Fuse Objects")]
-        [SerializeField] private GameObject pawnObject = null;
-        [SerializeField] private GameObject rookObject = null;
-        [SerializeField] private GameObject knightObject = null;
-        [SerializeField] private GameObject bishopObject = null;
-        [SerializeField] private GameObject queenObject = null;
-        [SerializeField] private GameObject kingObject = null;
+        [SerializeField] private GameObject RubyObject = null;
+        [SerializeField] private GameObject WeissObject = null;
+        [SerializeField] private GameObject BlakeObject = null;
+        [SerializeField] private GameObject YangObject = null;
+        [SerializeField] private GameObject KeyObject = null;
 
-        [Header("Power Manager Reference")]
-        [SerializeField] private ChessPowerManager powerManager = null;
+        [SerializeField] private UnityEvent unlock = null;
 
-        [Header("Light Object")]
-        [SerializeField] private Renderer fuseBoxLight = null;
+
 
         private ChessFuseBoxController fuseBoxController;
 
@@ -39,24 +37,24 @@ namespace ChessPuzzleSystem
 
             switch(_fuseBoxType)
             {
-                case FuseBoxType.PawnFuseBox: fuseBoxName = "Pawn"; break;
-                case FuseBoxType.RookFuseBox: fuseBoxName = "Rook"; break;
-                case FuseBoxType.KnightFuseBox: fuseBoxName = "Knight"; break;
-                case FuseBoxType.BishopFuseBox: fuseBoxName = "Bishop"; break;
-                case FuseBoxType.QueenFuseBox: fuseBoxName = "Queen"; break;
-                case FuseBoxType.KingFuseBox: fuseBoxName = "King"; break;
+                case FuseBoxType.RubyFuseBox: fuseBoxName = "Ruby"; break;
+                case FuseBoxType.WeissFuseBox: fuseBoxName = "Weiss"; break;
+                case FuseBoxType.BlakeFuseBox: fuseBoxName = "Blake"; break;
+                case FuseBoxType.YangFuseBox: fuseBoxName = "Yang"; break;
+                case FuseBoxType.KeyFuseBox: fuseBoxName = "Key"; break;
+
             }
 
             if (fusePlaced)
             {
                 switch (_fuseType)
                 {
-                    case FuseType.PawnFuse: _fuseType = FuseType.PawnFuse; fuseName = "Pawn"; ModelSwitch();  pawnObject.SetActive(true); break;
-                    case FuseType.RookFuse: _fuseType = FuseType.RookFuse; fuseName = "Rook"; ModelSwitch(); rookObject.SetActive(true); break;
-                    case FuseType.KnightFuse: _fuseType = FuseType.KnightFuse; fuseName = "Knight"; ModelSwitch(); knightObject.SetActive(true); break;
-                    case FuseType.BishopFuse: _fuseType = FuseType.BishopFuse; fuseName = "Bishop"; ModelSwitch(); bishopObject.SetActive(true); break;
-                    case FuseType.QueenFuse: _fuseType = FuseType.QueenFuse; fuseName = "Queen"; ModelSwitch(); queenObject.SetActive(true); break;
-                    case FuseType.KingFuse: _fuseType = FuseType.KingFuse;fuseName = "King"; ModelSwitch(); kingObject.SetActive(true); break;
+                    case FuseType.Ruby: _fuseType = FuseType.Ruby; fuseName = "Ruby"; ModelSwitch();  RubyObject.SetActive(true); break;
+                    case FuseType.Weiss: _fuseType = FuseType.Weiss; fuseName = "Weiss"; ModelSwitch(); WeissObject.SetActive(true); break;
+                    case FuseType.Blake: _fuseType = FuseType.Blake; fuseName = "Blake"; ModelSwitch(); BlakeObject.SetActive(true); break;
+                    case FuseType.Yang: _fuseType = FuseType.Yang; fuseName = "Yang"; ModelSwitch(); YangObject.SetActive(true); break;
+                    case FuseType.Key: _fuseType = FuseType.Key; fuseName = "Key"; ModelSwitch(); KeyObject.SetActive(true); break;
+
                 }
             }
         }
@@ -69,91 +67,83 @@ namespace ChessPuzzleSystem
 
         private void ModelSwitch()
         {
-            fuseBoxLight.material.color = Color.green;
-            pawnObject.SetActive(false);
-            rookObject.SetActive(false);
-            knightObject.SetActive(false);
-            bishopObject.SetActive(false);
-            queenObject.SetActive(false);
-            kingObject.SetActive(false);        
+            
+            RubyObject.SetActive(false);
+            WeissObject.SetActive(false);
+            BlakeObject.SetActive(false);
+            YangObject.SetActive(false);
+            KeyObject.SetActive(false);
+       
         }
 
         private void RemoveModel()
         {
-            pawnObject.SetActive(false);
-            rookObject.SetActive(false);
-            knightObject.SetActive(false);
-            bishopObject.SetActive(false);
-            queenObject.SetActive(false);
-            kingObject.SetActive(false);
+            RubyObject.SetActive(false);
+            WeissObject.SetActive(false);
+            BlakeObject.SetActive(false);
+            YangObject.SetActive(false);
+            KeyObject.SetActive(false);
+
 
             fusePlaced = false;
             fuseName = null;
-            fuseBoxLight.material.color = Color.red;
+
         }
 
         public void PlaceFuse(string fuseType)
         {
             switch (fuseType)
             {
-                case "Pawn":
-                    if (ChessInventoryManager.instance.hasPawnFuse && !fusePlaced)
+                case "Ruby":
+                    if (ChessInventoryManager.instance.hasRubyFuse && !fusePlaced)
                     {
-                        _fuseType = FuseType.PawnFuse;
-                        fuseName = "Pawn";
+                        _fuseType = FuseType.Ruby;
+                        fuseName = "Ruby";
                         fusePlaced = true;
                         ModelSwitch();
-                        pawnObject.SetActive(true);
+                        RubyObject.SetActive(true);
                     }
                     break;
-                case "Rook":
-                    if (ChessInventoryManager.instance.hasRookFuse && !fusePlaced)
+                case "Weiss":
+                    if (ChessInventoryManager.instance.hasWeissFuse && !fusePlaced)
                     {
-                        _fuseType = FuseType.RookFuse;
-                        fuseName = "Rook";
+                        _fuseType = FuseType.Weiss;
+                        fuseName = "Weiss";
                         fusePlaced = true;
                         ModelSwitch();
-                        rookObject.SetActive(true);
+                        WeissObject.SetActive(true);
                     }
                     break;
-                case "Knight":
-                    if (ChessInventoryManager.instance.hasKnightFuse && !fusePlaced)
+                case "Blake":
+                    if (ChessInventoryManager.instance.hasBlakeFuse && !fusePlaced)
                     {
-                        _fuseType = FuseType.KnightFuse;
-                        fuseName = "Knight";
+                        _fuseType = FuseType.Blake;
+                        fuseName = "Blake";
                         fusePlaced = true;
                         ModelSwitch();
-                        knightObject.SetActive(true);
+                        BlakeObject.SetActive(true);
                     }
                     break;
-                case "Bishop":
-                    if (ChessInventoryManager.instance.hasBishopFuse && !fusePlaced)
+                case "Yang":
+                    if (ChessInventoryManager.instance.hasYangFuse && !fusePlaced)
                     {
-                        _fuseType = FuseType.BishopFuse;
-                        fuseName = "Bishop";
+                        _fuseType = FuseType.Yang;
+                        fuseName = "Yang";
                         fusePlaced = true;
                         ModelSwitch();
-                        bishopObject.SetActive(true);
+                        YangObject.SetActive(true);
                     }
                     break;
-                case "Queen":
-                    if (ChessInventoryManager.instance.hasQueenFuse && !fusePlaced)
+                case "Key":
+                    if (ChessInventoryManager.instance.hasKeyFuse && !fusePlaced)
                     {
-                        _fuseType = FuseType.QueenFuse;
-                        fuseName = "Queen";
+                        _fuseType = FuseType.Key;
+                        fuseName = "Key";
                         fusePlaced = true;
                         ModelSwitch();
-                        queenObject.SetActive(true);
-                    }
-                    break;
-                case "King":
-                    if (ChessInventoryManager.instance.hasKingFuse && !fusePlaced)
-                    {
-                        _fuseType = FuseType.KingFuse;
-                        fuseName = "King";
-                        fusePlaced = true;
-                        ModelSwitch();
-                        kingObject.SetActive(true);
+                        KeyObject.SetActive(true);
+                        unlock.Invoke();
+
                     }
                     break;
                 case "RemoveFuse":
@@ -161,7 +151,7 @@ namespace ChessPuzzleSystem
                     break;
             }
             AKAudioManager.instance.Play("ChessInsert");
-            powerManager.CheckFuses();
+
         }
     }
 }
