@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using FlashlightSystem;
 using GeneratorSystem;
-using GasMaskSystem;
 using ThemedKeySystem;
 using ChessPuzzleSystem;
 using FuseboxSystem;
@@ -84,7 +83,6 @@ namespace ExamineSystem
 
         private FlashlightItemController _flashlightItemController;
         private GeneratorItemController _generatorItemController;
-        private GasMaskItemController _gasMaskItemController;
         private ThemedKeyItemController _themedKeyItemController;
         private ChessItemController _chessItemController;
         private FuseItemController _fuseboxItemController;
@@ -421,7 +419,6 @@ namespace ExamineSystem
             {
                 case SystemType.FlashlightSys: _flashlightItemController = GetComponent<FlashlightItemController>(); break;
                 case SystemType.GeneratorSys: _generatorItemController = GetComponent<GeneratorItemController>(); break;
-                case SystemType.GasMaskSys: _gasMaskItemController = GetComponent<GasMaskItemController>(); break;
                 case SystemType.ThemedKeySys: _themedKeyItemController = GetComponent<ThemedKeyItemController>(); break;
                 case SystemType.ChessSys: _chessItemController = GetComponent<ChessItemController>(); break;
                 case SystemType.FuseBoxSys: _fuseboxItemController = GetComponent<FuseItemController>(); break;
@@ -434,7 +431,6 @@ namespace ExamineSystem
             {
                 case SystemType.FlashlightSys: _flashlightItemController.ObjectInteract(); break;
                 case SystemType.GeneratorSys: _generatorItemController.ObjectInteract(); break;
-                case SystemType.GasMaskSys: _gasMaskItemController.ObjectInteract(); break;
                 case SystemType.ThemedKeySys: _themedKeyItemController.ObjectInteract(); break;
                 case SystemType.ChessSys: _chessItemController.ObjectInteract(); break;
                 case SystemType.FuseBoxSys: _fuseboxItemController.ObjectInteract(); break;

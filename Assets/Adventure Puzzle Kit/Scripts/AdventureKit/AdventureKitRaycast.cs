@@ -10,6 +10,9 @@ namespace AdventurePuzzleKit
         [SerializeField] private LayerMask layerMaskInteract;
         [SerializeField] private string exludeLayerName = null;
         private AKItemController raycasted_obj;
+        private myDoorController door;
+
+        private KeyCode openDoorKey = KeyCode.Mouse0;
 
         [Header("UI / Crosshair")]
         [SerializeField] private Image crosshair = null;
@@ -17,6 +20,7 @@ namespace AdventurePuzzleKit
 
         private bool isCrosshairActive;
         private const string pickupTag = "InteractiveObject";
+        private const string pickupTag2 = "Door";
 
         private void Update()
         {
@@ -42,6 +46,24 @@ namespace AdventurePuzzleKit
                     {
                         raycasted_obj.InteractionType();
                     }
+                }
+
+                if (hit.collider.CompareTag(pickupTag2))
+                {
+                    if (!doOnce)
+                    {
+                        door = hit.collider.gameObject.GetComponent<myDoorController>();
+                        CrosshairChange(true);
+                    }
+
+                    isCrosshairActive = true;
+                    doOnce = true;
+
+                    if (Input.GetKeyDown(openDoorKey))
+                    {
+                        door.PlayAnimation();
+                    }
+
                 }
             }
 

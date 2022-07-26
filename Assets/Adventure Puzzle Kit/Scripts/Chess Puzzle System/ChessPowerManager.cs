@@ -9,18 +9,16 @@ namespace ChessPuzzleSystem
         [SerializeField] private ChessFuseBoxController fuseBox2 = null;
         [SerializeField] private ChessFuseBoxController fuseBox3 = null;
         [SerializeField] private ChessFuseBoxController fuseBox4 = null;
-        [SerializeField] private ChessFuseBoxController fuseBox5 = null;
-        [SerializeField] private ChessFuseBoxController fuseBox6 = null;
+
 
         private bool isFuseBox1;
         private bool isFuseBox2;
         private bool isFuseBox3;
         private bool isFuseBox4;
-        private bool isFuseBox5;
-        private bool isFuseBox6;
 
-        [Header("Power on - Chess pieces correct")]
-        [SerializeField] private UnityEvent powerUp = null;
+
+        
+        [SerializeField] private UnityEvent Unlock = null;
 
 
         public void CheckFuses()
@@ -45,19 +43,10 @@ namespace ChessPuzzleSystem
             else
                 isFuseBox4 = false;
 
-            if (fuseBox5.fuseBoxName == fuseBox5.fuseName)
-                isFuseBox5 = true;
-            else
-                isFuseBox5 = false;
 
-            if (fuseBox6.fuseBoxName == fuseBox6.fuseName)
-                isFuseBox6 = true;
-            else
-                isFuseBox6 = false;
-
-            if (isFuseBox1 && isFuseBox2 && isFuseBox3 && isFuseBox4 && isFuseBox5 && isFuseBox6)
+            if (isFuseBox1 && isFuseBox2 && isFuseBox3 && isFuseBox4)
             {
-                powerUp.Invoke();
+                Unlock.Invoke();
             }
         }
     }

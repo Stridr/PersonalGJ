@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &897845876712653895
 MonoBehaviour:
@@ -74,7 +74,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1257944102548810092
 MonoBehaviour:
@@ -88,25 +88,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962bac66d4833d84d833b9a72b9e6c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasPawnFuse: 0
-  hasRookFuse: 0
-  hasKnightFuse: 0
-  hasBishopFuse: 0
-  hasQueenFuse: 0
-  hasKingFuse: 0
-  usingPawnBox: 0
-  usingRookBox: 0
-  usingKnightBox: 0
-  usingBishopBox: 0
-  usingQueenBox: 0
-  usingKingBox: 0
+  hasRubyFuse: 0
+  hasWeissFuse: 0
+  hasBlakeFuse: 0
+  hasYangFuse: 0
+  hasKeyFuse: 0
+  usingRubyBox: 0
+  usingWeissBox: 0
+  usingBlakeBox: 0
+  usingYangBox: 0
+  usingKeyBox: 0
   chessPuzzleInventoryUI: {fileID: 0}
-  pawnImageSlotUI: {fileID: 0}
-  rookImageSlotUI: {fileID: 0}
-  knightImageSlotUI: {fileID: 0}
-  bishopImageSlotUI: {fileID: 0}
-  queenImageSlotUI: {fileID: 0}
-  kingImageSlotUI: {fileID: 0}
+  RubyImageSlotUI: {fileID: 0}
+  WeissImageSlotUI: {fileID: 0}
+  BlakeImageSlotUI: {fileID: 0}
+  YangImageSlotUI: {fileID: 0}
+  KeyImageSlotUI: {fileID: 0}
   invfuseBoxController: {fileID: 0}
 --- !u!1 &1272949366447813516
 GameObject:
@@ -140,82 +137,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1274177949020821526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270296457700057113}
-  - component: {fileID: 1274177949020821527}
-  m_Layer: 0
-  m_Name: GasMaskManager
-  m_TagString: GasMaskController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1270296457700057113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177949020821526}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1274177949020821527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177949020821526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ab4042f9b2c4f4bb17ddb7eb113fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEquipMaskTimer: 1
-  maskEquippedColor: {r: 0, g: 1, b: 0.15721321, a: 1}
-  maskNormalColor: {r: 1, g: 1, b: 1, a: 1}
-  hasGasMask: 0
-  gasMaskOn: 0
-  puttingOn: 0
-  puttingOff: 0
-  walkNorm: 5
-  walkGas: 2
-  runNorm: 10
-  runGas: 4
-  filterFallRate: 2
-  warningPercentage: 20
-  filterTimer: 100
-  maskFilters: 5
-  defaultVignette: 0.28
-  filterAlarmColor: {r: 1, g: 0, b: 0, a: 1}
-  filterNormalColor: {r: 1, g: 1, b: 1, a: 1}
-  maskIconUI: {fileID: 0}
-  filterIconUI: {fileID: 0}
-  filterCountUI: {fileID: 0}
-  filterSliderUI: {fileID: 0}
-  vignetteEffect: {fileID: 0}
-  blurEffect: {fileID: 0}
-  visorImageOverlay: {fileID: 0}
-  gasMaskWarning: GasMaskWarning
-  gasMaskChoking: GasMaskChoking
-  gasMaskDeepBreath: GasMaskDeepBreath
-  gasMaskBreathIn: GasMaskBreathIn
-  gasMaskBreathOut: GasMaskBreathOut
-  gasMaskBreathing: GasMaskBreathing
-  gasMaskReplaceFilter: GasMaskReplaceFilter
-  gasMaskPickup: GasMaskPickup
 --- !u!1 &1274177949320496747
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,56 +345,6 @@ MonoBehaviour:
   customReverseNoteTextImage: {fileID: 0}
   customReverseFlipNoteTextUI: {fileID: 0}
   noteController: {fileID: 0}
---- !u!1 &1274177949917650189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2967878807228130361}
-  - component: {fileID: 1274177949917650190}
-  m_Layer: 0
-  m_Name: Generator - InventoryManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2967878807228130361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177949917650189}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1274177949917650190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177949917650189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 906bf9b4dfb176c4db765e33192f89a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentFuel: 30
-  maximumFuel: 100
-  hasJerrycan: 0
-  isInventoryOpen: 0
-  fuelFillUI: {fileID: 0}
-  currentFuelText: {fileID: 0}
-  maximumFuelText: {fileID: 0}
 --- !u!1 &1274177950005292647
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +466,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1274177950269126032
 MonoBehaviour:
@@ -711,7 +582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1274177950291754729
 MonoBehaviour:
@@ -767,60 +638,6 @@ Transform:
   m_Father: {fileID: 1274177951023356611}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1274177950677447132
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270296456573652861}
-  - component: {fileID: 1274177950677447133}
-  m_Layer: 0
-  m_Name: GasMask - HealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1270296456573652861
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177950677447132}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1274177951023356611}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1274177950677447133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274177950677447132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a055693ac9d92348baecd23a99370dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
-  healthFall: 2
-  currentHealthTimer: 1
-  maxHealthTimer: 1
-  regenHealth: 0
-  healthTextUI: {fileID: 0}
-  healthSliderUI: {fileID: 0}
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1274177950792274123
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,9 +776,6 @@ Transform:
   m_Children:
   - {fileID: 1274177950413494694}
   - {fileID: 1270307595707287216}
-  - {fileID: 1270296457700057113}
-  - {fileID: 1270296456573652861}
-  - {fileID: 2967878807228130361}
   - {fileID: 1956309519512600348}
   - {fileID: 1279008826667242576}
   - {fileID: 1257944102548810088}

@@ -21,7 +21,7 @@ namespace AdventurePuzzleKit
         [Header("Generic Variables")]
         [SerializeField] private Image crosshair = null;        
         [SerializeField] private AdventureKitRaycast raycastManager = null;
-        [SerializeField] private BlurOptimized blur = null;
+
 
         public static AKDisableManager instance;
 
@@ -99,7 +99,6 @@ namespace AdventurePuzzleKit
                 ShowCursor(true);
                 AKUIManager.instance.isInteracting = true;
                 crosshair.enabled = false;
-                blur.enabled = true;
 
                 if (isFirstPerson)
                 {
@@ -118,7 +117,6 @@ namespace AdventurePuzzleKit
                 ShowCursor(false);
                 AKUIManager.instance.isInteracting = false;
                 crosshair.enabled = true;
-                blur.enabled = false;
 
                 if (isFirstPerson)
                 {

@@ -1,6 +1,5 @@
 ﻿using ExamineSystem;
 using FlashlightSystem;
-using GasMaskSystem;
 using GeneratorSystem;
 using KeypadSystem;
 using PadlockSystem;
@@ -27,7 +26,6 @@ namespace AdventurePuzzleKit
         private ExamineItemController _examineItemController;
         private GeneratorItemController _generatorItemController;
         private NoteController _noteController;
-        private GasMaskItemController _gasMaskItemController;
         private KeypadItemController _keypadItemController;
         private ThemedKeyItemController _themedKeyItemController;
         private PhonePadItemController _phonepadItemController;
@@ -50,7 +48,6 @@ namespace AdventurePuzzleKit
                 case SystemType.GeneratorSys: _generatorItemController = GetComponent<GeneratorItemController>(); break;
                 case SystemType.ExamineSys: _examineItemController = GetComponent<ExamineItemController>(); break;
                 case SystemType.NoteSys: _noteController = GetComponent<NoteController>(); break;
-                case SystemType.GasMaskSys: _gasMaskItemController = GetComponent<GasMaskItemController>(); break;
                 case SystemType.KeypadSys: _keypadItemController = GetComponent<KeypadItemController>(); break;
                 case SystemType.ThemedKeySys: _themedKeyItemController = GetComponent<ThemedKeyItemController>(); break;
                 case SystemType.PhoneSys: _phonepadItemController = GetComponent<PhonePadItemController>(); break;
@@ -129,7 +126,6 @@ namespace AdventurePuzzleKit
                 case SystemType.GeneratorSys: _generatorItemController.ObjectInteract(); break;
                 case SystemType.ExamineSys: _examineItemController.ExamineObject(); break;
                 case SystemType.NoteSys: _noteController.DisplayNotes(); break;
-                case SystemType.GasMaskSys: _gasMaskItemController.ObjectInteract(); break;
                 case SystemType.KeypadSys: _keypadItemController.ShowKeypad(); break;
                 case SystemType.ThemedKeySys: _themedKeyItemController.ObjectInteract(); break;
                 case SystemType.PhoneSys: _phonepadItemController.ShowKeypad(); break;

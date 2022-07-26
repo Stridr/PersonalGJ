@@ -11,11 +11,12 @@ TagManager:
   - ExaminePoint
   - Door
   - Selectable
+  - LeverController
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
   - 
@@ -24,8 +25,8 @@ TagManager:
   - Interact
   - ExamineLayer
   - InspectPointMask
-  - 
-  - 
+  - RaycastBlocker
+  - Door
   - 
   - 
   - 

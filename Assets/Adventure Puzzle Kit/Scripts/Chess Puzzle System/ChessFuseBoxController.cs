@@ -27,7 +27,7 @@ namespace ChessPuzzleSystem
 
         [SerializeField] private UnityEvent unlock = null;
 
-
+        [SerializeField] private ChessPowerManager powerManager = null;
 
         private ChessFuseBoxController fuseBoxController;
 
@@ -151,7 +151,7 @@ namespace ChessPuzzleSystem
                     break;
             }
             AKAudioManager.instance.Play("ChessInsert");
-
+            powerManager.CheckFuses();
         }
     }
 }
