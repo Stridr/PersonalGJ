@@ -12,6 +12,7 @@ TagManager:
   - Door
   - Selectable
   - LeverController
+  - Lever
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - InspectPointMask
   - RaycastBlocker
   - Door
-  - 
+  - Lever
   - 
   - 
   - 
