@@ -8,7 +8,6 @@ public class LeverStatus : MonoBehaviour
     
     public bool leverIsOn = false;
     private Animator switchChange;
-    private AudioSource leverpull;
 
 
     private void Start()
@@ -22,7 +21,6 @@ public class LeverStatus : MonoBehaviour
         if (leverIsOn == false)
         {
             switchChange.Play("Handle_Pull");
-            leverpull.GetComponentInChildren<AudioClip>();
             leverIsOn = true;
             GetLeverStatus(leverIsOn);
             

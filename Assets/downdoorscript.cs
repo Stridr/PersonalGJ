@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class myDoorController : MonoBehaviour
+public class downdoorscript : MonoBehaviour
 {
+    // Start is called before the first frame update
     private Animator doorAnim;
     [SerializeField] private UnityEvent open = null;
-    [SerializeField] private string sound = null;
 
     private bool doorOpen = false;
 
@@ -20,14 +20,14 @@ public class myDoorController : MonoBehaviour
     {
         if (!doorOpen)
         {
-            doorAnim.Play(sound, 0, 0.0f);
+            doorAnim.Play("DownDoor", 0, 0.0f);
             open.Invoke();
             doorOpen = true;
 
         }
         else
         {
-            doorAnim.Play("DoorClose", 0 ,0);
+            doorAnim.Play("DoorClose", 0, 0);
             doorOpen = false;
         }
     }

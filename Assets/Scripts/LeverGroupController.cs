@@ -94,41 +94,81 @@ public class LeverGroupController : MonoBehaviour
             lever1on = true;
         }
 
+        else
+        {
+            lever1on = false;
+        }
+
         if (lever2status.leverIsOn == true)
         {
             lever2on = true;
         }
+        else
+        {
+            lever2on = false;
+        }
+
 
         if (lever3status.leverIsOn == true)
         {
             lever3on = true;
         }
+        else
+        {
+            lever3on = false;
+        }
+
 
         if (lever4status.leverIsOn == true)
         {
             lever4on = true;
         }
+        else
+        {
+            lever4on = false;
+        }
+
 
         if (lever5status.leverIsOn == true)
         {
             lever5on = true;
         }
+        else
+        {
+            lever5on = false;
+        }
+
 
         if (lever6status.leverIsOn == true)
         {
             lever6on = true;
         }
+        else
+        {
+            lever6on = false;
+        }
+
 
         if (lever7status.leverIsOn == true)
         {
             lever7on = true;
         }
+        else
+        {
+            lever7on = false;
+        }
+
 
         if (lever8status.leverIsOn == true)
         {
             lever8on = true;
 
         }
+        else
+        {
+            lever8on = false;
+        }
+
     }
 
 
