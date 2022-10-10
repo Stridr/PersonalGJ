@@ -92,6 +92,7 @@ namespace AdventurePuzzleKit
                 case SystemType.buttonDoorSys: _buttonDoorController.PlayAnimation(); break;
                 case SystemType.FuseBoxSys: _fuseboxItemController.ObjectInteract(); break;
                 case SystemType.leverSys: _leverItemController.ObjectInteract(); break;
+
             }
         }
     }

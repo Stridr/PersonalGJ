@@ -4,6 +4,7 @@ namespace AdventurePuzzleKit
 {
     public class AKInputManager : MonoBehaviour
     {
+
         [Header("Raycast / First Person Pickup Inputs")]
         public KeyCode pickupKey;
 

@@ -8,6 +8,7 @@ public class LeverStatus : MonoBehaviour
     
     public bool leverIsOn = false;
     private Animator switchChange;
+    private AudioSource handle;
 
 
     private void Start()
@@ -23,6 +24,7 @@ public class LeverStatus : MonoBehaviour
             switchChange.Play("Handle_Pull");
             leverIsOn = true;
             GetLeverStatus(leverIsOn);
+            AdventurePuzzleKit.AKAudioManager.instance.Play("SwitchPull");
             
         }
         
@@ -31,6 +33,7 @@ public class LeverStatus : MonoBehaviour
             switchChange.Play("Handle_Push");
             leverIsOn = false;
             GetLeverStatus(leverIsOn);
+            AdventurePuzzleKit.AKAudioManager.instance.Play("SwitchPull");
         }
         
         

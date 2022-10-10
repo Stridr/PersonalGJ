@@ -50,7 +50,10 @@ namespace AdventurePuzzleKit
                     if (Input.GetKeyDown(AKInputManager.instance.pickupKey))
                     {
                         raycasted_obj.InteractionType();
+
                     }
+                    //added return to STOP the method from continuing if the compareTag check returns true, as we have found the tagged object we are looking for, and there is no point to continuing the method.
+                    return;
                 }
 
                 if (hit.collider.CompareTag(pickupTag2))
@@ -68,7 +71,8 @@ namespace AdventurePuzzleKit
                     {
                         door.PlayAnimation();
                     }
-
+                    //added return to STOP the method from continuing if the compareTag check returns true, as we have found the tagged object we are looking for, and there is no point to continuing the method.
+                    return;
                 }
 
                 if (hit.collider.CompareTag(pickupTag3))
@@ -86,19 +90,21 @@ namespace AdventurePuzzleKit
                     {
                         lever.PlayAnimation();
                     }
-
+                    //added return to STOP the method from continuing if the compareTag check returns true, as we have found the tagged object we are looking for, and there is no point to continuing the method.
+                    return;
                 }
             }
 
-            else
+            //removed ELSE case, as it is no longer needed since all if() conditions return out of the method before reaching this point. this way, even if the raycast hits a non-tagged object, it will treat it as a non-hit and reset the cursor.
+            //9 times out of 10, an if/else case can be avoided by simply returning out. This way reaching the end of the method shouldn't happen unless all previous cases fail.
+            //And with that design pattern you will always be 100% certain things like resetting cursor states, etc. will run if nothing else stops the method beforehand.
+            if (isCrosshairActive)
             {
-                if (isCrosshairActive)
-                {
-                    raycasted_obj.Highlight(false);
-                    CrosshairChange(false);
-                    doOnce = false;
-                }
+                raycasted_obj.Highlight(false);
+                CrosshairChange(false);
+                doOnce = false;
             }
+
         }
 
         void CrosshairChange(bool on)
